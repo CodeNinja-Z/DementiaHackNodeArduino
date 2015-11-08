@@ -39,5 +39,5 @@
 - time_of_day_3
 - time_of_day_4
 
-### GET - /scheudle/:id
+### GET - /schedule/:id
 #### Returns the LATEST schedule

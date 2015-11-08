@@ -87,7 +87,7 @@ serialPort.open(function (error) {
         res = res[1].replace(']', '');
         res = res.split('=');
         var id = res[1];
-        io.emit(id);
+        io.emit('id', id);
         console.log("Response: " + id);
         fullData = "";
       }
