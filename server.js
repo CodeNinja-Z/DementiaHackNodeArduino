@@ -6,6 +6,12 @@ var r = require('rethinkdbdash')();
 var async = require('async');
 var bodyParser = require('body-parser');
 
+// Twilio Credentials
+var accountSid = 'AC9d79cd05275d15b00d0c7ca92a405f41';
+var authToken = '45c240d972ae70e4d35de0ff4c4226ce';
+
+//require the Twilio module and create a REST client
+var client = require('twilio')(accountSid, authToken);
 require('./generateDatabase.js')(r, async);
 
 
@@ -90,6 +96,16 @@ serialPort.open(function (error) {
         io.emit('id', id);
         console.log("Response: " + id);
         fullData = "";
+        id = id.replace(/ /g,'');
+        if (id == 1) {
+          client.messages.create({
+          	to: "289-952-3406",
+          	from: "+16046700992",
+          	body: "Your patient took the meds at the wrong time!",   
+          }, function(err, message) {
+          	console.log(message.sid);
+          });
+        }
       }
     });
     serialPort.write("ls\n", function(err, results) {

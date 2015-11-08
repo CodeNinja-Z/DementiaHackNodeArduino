@@ -12,7 +12,8 @@
     "request": "^2.65.0",
     "rethinkdbdash": "^2.1.17",
     "serialport": "^2.0.2",
-    "socket.io": "^1.3.7"
+    "socket.io": "^1.3.7",
+    "twilio": "^2.5.2"
   },
   "devDependencies": {},
   "scripts": {
